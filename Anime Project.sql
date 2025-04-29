@@ -1,5 +1,5 @@
 -- swapnil  
-create Database Anime;
+Create Database Anime;
 
 use Anime;
 
@@ -69,7 +69,6 @@ insert into anime values
 (59, 'Weathering With You', 'Movie', 1, 10, 2019, 1, 18, 21),
 (60, 'I want To Eat Your Pancreas', 'Movie', 1, 10, 2023, 22, 19, 22);
 
--- urja
 create table genre (genre_id int(5) primary key auto_increment , type char(255));
 
 insert into genre values (1, 'romance'), (2, 'sci-fi'),(3, 'thriller'), (4, 'drama'), (5, 'action'), (6, 'fantasy'), (7, 'comedy'),
@@ -105,7 +104,6 @@ insert into author values
 (24, 'Kousuke Oono', 8, 29),
 (25, 'Naoshi Arakawa', 6, 40);
 
--- Nikhitha 
 create table studio (studio_id int(5) primary key, company_name char(255), rating int(1), 
 total_animations varchar(255), starting_year char(4) );
 
@@ -143,21 +141,18 @@ select * from studio;
 select * from author;
 select * from genre;
 
--- Urja
 select company_name , total_animations from studio 
 where rating >= 7;
 
 select DISTINCT type from anime
 order by type asc;
 
--- Nikhitha
 select * from anime
 where year_of_release >= '2015' and type != 'series';
 
 select * from anime
 where rating = 10 or type = 'movies';
 
--- swapnil
 select * from anime
 where year_of_release = '2017';
 
@@ -167,16 +162,15 @@ order by name
 limit 10;
 
 SELECT SUM(rating) FROM studio;
--- urja
+
 SELECT anime.anime_id, anime.name, author.author_id, author.name
 FROM anime
 INNER JOIN author ON anime.author_id=author.author_id;
--- Nikhitha
+
 SELECT anime.anime_id, anime.name, genre.type FROM anime
 LEFT JOIN genre
 ON anime.genre_id = genre.genre_id;
 
--- swapnil
 SELECT anime.anime_id, anime.name, genre.type FROM anime
 Right JOIN genre
 ON anime.genre_id = genre.genre_id
@@ -192,7 +186,6 @@ SELECT anime.rating FROM anime
 UNION 
 SELECT  studio.rating from studio;
 
--- swapnil
 -- Normalization
 CREATE database ANIMEE;
 USE ANIMEE;
